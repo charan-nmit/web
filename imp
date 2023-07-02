@@ -1,0 +1,937 @@
+//sum
+
+
+
+let a=parseFloat(prompt("Enter first number"));
+let b=parseFloat(prompt("Enter second number"));
+let c=a+b;
+alert("The sum is\t"  +c);
+
+
+
+//reverse
+
+
+
+let number=parseFloat(prompt("Enter the number"));
+const revnum=(number)=>
+{
+    let data=number.toString();
+    let res=data.split("").reverse().join('');
+    alert(res);
+}
+
+revnum(number);
+
+
+
+//onfulfilled,onrejected
+
+
+
+const testNumber=(num)=>new Promise((resolve,reject)=>
+{
+    if(num>20)
+    {
+        resolve('The number is greater');
+    }
+    else
+    {
+        reject("The number is smaller");
+    }
+})
+
+
+function onFullfilled(value)
+{
+    console.log(value);
+}
+
+
+function onRejected(err)
+{
+    console.log(err);
+}
+
+
+const promise=testNumber(25);
+promise.then(onFullfilled,onRejected)
+
+
+
+//odd or even
+
+
+
+let number=parseInt(prompt("Enter the numebr"));
+function evenodd(number)
+{
+    if(number%2==0)
+    {
+        alert("Even");
+    }
+    else
+    {
+        alert("odd");
+    }
+}
+evenodd(number);
+
+
+
+
+//vowels
+
+
+
+
+function countVowels(str) 
+{
+    str = str.toLowerCase();
+    const vowels = ['a', 'e', 'i', 'o', 'u'];
+    let count = 0;
+    for (let i = 0; i < str.length; i++) 
+    {
+      if (vowels.includes(str[i]))
+    {
+        count++;
+    }
+    }
+    alert(count);
+}
+let str=prompt("Enter the string");
+countVowels(str); 
+
+
+
+//alphabeticalorder
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label>Enter the string</label>
+    <input type="text" id="stringdata">
+    <button id="submit">submit</button>
+    <p id="result"></p>
+    <script>
+        let input=document.getElementById('stringdata');
+        let btn=document.getElementById('submit');
+        let res=document.getElementById('submit');
+        btn.addEventListener('click',()=>
+        {
+            let a=input.value;
+            let result=a.split('').sort().join('');
+            res.innerHTML=`${result}`
+        
+        });
+    </script>
+</body>
+</html>
+
+
+
+//jumpsearch
+
+
+
+function jumpSearch(a, key)
+{
+  const n = a.length;
+  const jumpSize = Math.floor(Math.sqrt(n));
+  let left = 0;
+  let right = jumpSize;
+  
+  // Finding the block where the key might be present
+  while (a[right] <= key && right <n)
+   {
+    left = right;
+    right += jumpSize;
+    if (right > n - 1) 
+    {
+      right = n;
+    }
+  }
+  
+  // Performing linear search within the found block
+  for (let i = left; i < right; i++) 
+  {
+    if (a[i] === key) 
+    {
+      return i; // Key found at index i
+    }
+  }
+  
+  return -1; // Key not found in the array
+}
+
+// Prompting the user to enter the key and the list of numbers
+const key = parseInt(prompt("Enter the key:"));
+const numList = prompt("Enter the list of numbers (comma-separated):").split(",").map(Number);
+
+// Calling the jumpSearch function
+const result = jumpSearch(numList, key);
+
+// Reporting success or failure
+if (result === -1) {
+  console.log("Key not found in the list.");
+} else {
+  console.log(`Key found at index ${result}.`);
+}
+
+
+
+//caeser cipher
+
+const caesarCipher = (str, shift) => 
+{
+    let result = "";
+    for (let i = 0; i < str.length; i++)
+     {
+      let a = str.charCodeAt(i);
+      if (a >= 65 && a <= 90) 
+      {
+        // uppercase letters
+        a = ((a - 65 + shift) % 26) + 65;
+      } else if (a >= 97 && a <= 122) 
+      {
+        // lowercase letters
+        a = ((a - 97 + shift) % 26) + 97;
+      }
+      result += String.fromCharCode(a);
+    }
+    alert(result);
+    return(result)
+  }
+  
+  const text = prompt("Enter the text to be encrypted:");
+  const shift = parseInt(prompt("Enter the shift pattern (a positive integer):"), 10);
+  
+  const encryptedText = caesarCipher(text, shift);
+  
+  console.log("The encrypted text is:"+encryptedText);
+
+
+
+//captalize
+
+
+
+function capitalizeWords(str) 
+{
+    return str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+ }
+ const a=prompt("Enter the string");
+ console.log(capitalizeWords(a)); 
+
+
+
+//onclick
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function hello()
+        {
+            alert("hello");
+        }
+
+    </script>
+</head>
+<body>
+    <button type="button" onclick="hello()"></button>
+
+</body>
+</html>
+
+
+//onmouseover
+
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <body>
+        <script>
+            function hov()
+            {
+                let e=document.getElementById('hover');
+                e.style.display='none';
+            }
+
+        </script>
+    </head>
+        
+            <div id="hover" onmouseover="hov()"
+            style="background-color: aqua;height: 200px;;width: 200px;"></div>
+        </body>
+    
+</html>
+
+
+
+//onmouseout
+
+
+
+
+<!doctype html>
+<html>
+<head>
+	<script>
+	function out() {
+		var e = document.getElementById('hover');
+		e.style.display = 'none';
+	}
+	</script>
+</head>
+<body>
+	<div id="hover" onmouseout="out()"
+	style="background-color:green;height:200px;width:200px;">
+	</div>
+</body>
+</html>
+
+
+
+
+//onchange
+
+
+
+
+<!doctype html>
+<html>
+<head></head>
+<body>
+	<input onchange="alert(this.value)" type="number">
+</body>
+</html>
+
+
+
+
+//onkeydown
+
+
+
+<!DOCTYPE html>
+<html>
+<body>
+    <input type="text" id="demo" onkeydown="myfunction()">
+    <script>
+        function myfunction()
+        {
+            document.getElementById("demo").style.backgroundColor="blue";
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+//binarysearch
+
+
+function insertelemets()
+{
+    let a=[];
+    let n=prompt("Enter the number of elements");
+    for(let i=0;i<n;i++)
+    {
+        let element=parseInt(prompt("Enter the number at position"+(i+1)));
+        a.push(element);
+    }
+    return a;
+}
+function binarysearch(a,target)
+{
+    let left=0;
+    let right=a.length-1;
+    while(left<=right)
+    {
+        let mid=Math.floor((left+right)/2);
+        if(a[mid]==target)
+        {
+            return mid;
+
+        }
+        else if(a[mid]<target)
+        {
+            left=mid+1;
+        }
+        else
+        {
+         right=mid-1;
+        }
+    }
+    return -1;
+    
+}
+var input=insertelemets();
+var target=parseInt(prompt("Enter the element"));
+var result=binarysearch(input,target);
+if(result==-1)
+{
+    alert("Not found");
+}
+else
+{
+    alert("Element found at\n"+result);
+}
+
+
+
+
+//split
+
+
+const sentence = prompt("Enter a sentence:");
+const wordsArray = sentence.split(" ");
+console.log(wordsArray);
+
+
+//usn
+
+
+function validateUSN(usn) 
+{
+    const pattern = /^[1-4][A-Za-z]{2}\d{2}[A-Za-z]{2}\d{3}$/;
+    return pattern.test(usn);
+ }
+  
+  const userInput = prompt("Enter VTU USN:");
+  const isValidUSN = validateUSN(userInput);
+  
+  if (isValidUSN) 
+  {
+    alert("Valid USN");
+  }
+   else
+   {
+    alert("Invalid USN");
+  }
+  
+
+
+
+
+//leapyears
+
+
+
+
+
+function LeapYears(startYear, endYear) {
+    const leapYear = [];
+  
+    for (let year = startYear; year <= endYear; year++) {
+      if (isLeapYear(year)) {
+        leapYear.push(year);
+      }
+    }
+  
+    console.log(leapYear);
+  }
+  
+  function isLeapYear(year) {
+    return (year % 4 == 0 && year % 100 !== 0) || year % 400 ==0;
+  }
+  
+  // Example usage:
+  const startYear = 2000;
+  const endYear = 2023;
+  LeapYears(startYear, endYear);
+  
+  console.log(`Leap years between ${startYear} and ${endYear}:`);
+  
+
+
+
+//set iterations
+
+
+const myset=new Set();
+myset.add("charan");
+myset.add("kiran");
+myset.add("murali");
+for(const values of myset)
+{
+    console.log(values);
+}
+
+
+
+//date
+
+
+
+
+const inputString = prompt("Enter a string:");
+const datePattern = /\b(\d{2}[\/-]\d{2}[\/-]\d{4})\b/;
+const match = inputString.match(datePattern);
+if (match) {
+  alert(match[0]);
+} else {
+  alert("No date found in the input string.");
+}
+
+
+
+//map
+
+
+
+const mymap=new Map();
+  
+  mymap.set("King","Kohli");
+  mymap.set("RCB","IPL");
+  mymap.set("Hydra","Richie");
+  
+  
+  mymap.forEach((key,values)=>
+  {
+      console.log(key,values);
+  })
+
+
+
+
+
+//map vs objects
+
+
+
+
+let obj = {}, map = new Map();
+let users = prompt("Enter the comma separated string").split(",").join(",");
+
+for (let i = 0; i < users.length; i++) {
+  obj[i]=users[i];
+  map.set(i, users[i]);
+}
+let result;
+console.log(obj);
+console.log(map);
+console.time('Object'); 
+result = obj.hasOwnProperty("mohan"); 
+console.timeEnd('Object');
+console.time('Map'); 
+result = map.has("moh"); 
+console.timeEnd('Map');
+//console.log(result);
+
+
+
+
+
+//set vs array 
+
+
+
+
+let users = ["John", "Murray", "Jane", "Jane", "Anne"];
+function unique(users) {
+    return Array.from(new Set(users));
+}
+console.log(unique(users));
+
+let set1 = new Set(users);
+let arrFromSet = [...set1];
+console.log(arrFromSet);
+let arr = [], set = new Set();
+let userss = ["John", "Mohan", "Kumar", "Karthik", "Kiran", "John"];
+for (let i = 0; i < userss.length; i++) {
+  arr.push(users[i]);
+  set.add(users[i]);
+}
+let result;
+
+console.time('Array'); 
+result = arr.indexOf("Mohan") !== -1; 
+console.timeEnd('Array');
+
+console.time('Set'); 
+result = set.has("Mohan"); 
+console.timeEnd('Set');
+
+
+
+
+//set vs array
+
+
+
+
+console.time('Array');
+const array = [];
+for (let i = 0; i < 1000; i++) {
+  array.push(i);
+}
+//const foundArray = array.includes(99);
+console.timeEnd('Array');
+console.time('Set');
+const set = new Set();
+for (let i = 0; i < 1000; i++) {
+  set.add(i);
+}
+//const foundSet = set.has(99);
+console.timeEnd('Set');
+
+
+
+
+//aync function
+
+
+
+
+function add(a, b)
+ {
+    return new Promise((resolve) => 
+    {
+      setTimeout(() =>
+     {
+        resolve(a + b);
+      }, 10);
+    });
+  }
+  
+  function subtract(a, b) {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(a - b);
+      }, 1500);
+    });
+  }
+  
+  function multiply(a, b) {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(a * b);
+      }, 1200);
+    });
+  }
+  
+  function divide(a, b) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (b === 0) {
+          reject("Division by zero is not allowed.");
+        } else {
+          resolve(a / b);
+        }
+      }, 2000);
+    });
+  }
+  
+  const num1 = parseFloat(prompt("Enter the first number:"));
+  const num2 = parseFloat(prompt("Enter the second number:"));
+  
+  async function performOperations() {
+    try {
+      const additionResult = await add(num1, num2);
+      console.log("Addition result:"+additionResult);
+  
+      const subtractionResult = await subtract(num1, num2);
+      console.log("Subtraction result:", subtractionResult);
+  
+      const multiplicationResult = await multiply(num1, num2);
+      console.log("Multiplication result:", multiplicationResult);
+  
+      const divisionResult = await divide(num1, num2);
+      console.log("Division result:", divisionResult);
+    } catch (error) {
+      console.log("Error:", error);
+    }
+  }
+  
+  performOperations();
+
+
+
+
+
+
+
+//plantrip
+
+
+
+
+
+
+function planTrip(location) 
+{
+    return new Promise((resolve, reject) => {
+      if (location === "Paris")
+     {
+        resolve("Let's take a trip to Paris");
+      } 
+      else
+     {
+        reject("Invalid Location");
+      }
+    });
+ }
+  
+  const userInput = prompt("Enter a location:");
+  
+  planTrip(userInput).then(function(value)
+  {
+    console.log(value);
+  }).catch(function(err)
+
+  {
+        console.log(err);
+  })
+   
+  
+
+
+
+
+
+//hotelbooking
+
+
+
+
+
+
+function bookFlight() {
+    return new Promise((resolve, reject) => {
+      // Simulating flight booking with a delay of 2 seconds
+      setTimeout(() => {
+        console.log('Flight booked successfully');
+        resolve();
+      }, 2000);
+    });
+  }
+  
+  function bookHotel() {
+    return new Promise((resolve, reject) => {
+      // Simulating hotel booking with a delay of 2 seconds
+      setTimeout(() => {
+        console.log('Hotel booked successfully');
+        resolve();
+      }, 2000);
+    });
+  }
+  
+  function bookFlightAndHotel() 
+  {
+    bookFlight().then(() =>
+     {
+        return bookHotel();
+      }).then(() => 
+      {
+        console.log('Booking completed successfully');
+      }).catch((error) => 
+      {
+        console.log('Error while booking:', error);
+      });
+  }
+  
+  // Calling the function to book flight and hotel
+  bookFlightAndHotel();
+
+
+
+
+
+
+
+//kg
+
+
+
+
+
+
+const convertWeight = (weight) => {
+    const lbs = weight * 2.2;
+  
+    if (lbs > 150) {
+      return "obese";
+    } else if (lbs >= 100 && lbs <= 150) {
+      return "you are ok";
+    } else {
+      return "underweight";
+    }
+  };
+let input=prompt("Enter weight in kgs")
+alert(convertWeight(input));  
+
+
+
+
+
+
+//virus
+
+
+
+
+function isPositive(virusComposition, bloodComposition) {
+  let i = 0;  
+  let j = 0;  
+  
+  while (i < virusComposition.length && j < bloodComposition.length) {
+    if (virusComposition[i] === bloodComposition[j]) {
+      j++;
+    }
+    i++; 
+  }
+  return j === bloodComposition.length;
+}
+const virusComposition = prompt("Enter the virus composition:").toLowerCase();
+const numPeople = parseInt(prompt("Enter the number of people to test:"));
+for (let i = 1; i <= numPeople; i++) {
+  const bloodComposition = prompt(`Enter the blood composition of person ${i}:`).toLowerCase(); 
+  const result = isPositive(virusComposition, bloodComposition);
+  if (result) {
+    console.log(`Person ${i} is POSITIVE.`);
+  } else {
+    console.log(`Person ${i} is NEGATIVE.`);
+  }
+}
+
+
+
+
+
+//email
+
+
+
+
+function validateEmail(email) {
+  // Regular expression pattern for email validation (including Gmail)
+  const emailPattern = /^[a-zA-Z0-9._%+-]+@(gmail\.com|[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/;
+
+  return emailPattern.test(email);
+}
+
+// Testing the email validation function
+const email = prompt("Enter an email address:");
+const isValid = validateEmail(email);
+
+if (isValid) {
+  console.log("Valid email address");
+} else {
+  console.log("Invalid email address");
+}
+
+
+
+
+
+//latitude-longitude
+
+
+
+
+var getLocationButton = document.getElementById("getLocationButton");
+getLocationButton.addEventListener('click',()=> 
+{
+  if (navigator.geolocation) {
+  
+    navigator.geolocation.getCurrentPosition(showPosition, showError);
+  } else {
+    console.log("Geolocation is not supported by this browser.");
+  }
+});
+function showPosition(position) {
+  var latitude = position.coords.latitude;
+  var longitude = position.coords.longitude;
+  document.write("latitude\t");
+ document.write(latitude);
+ document.write("longitude\t");
+ document.write(longitude);
+  console.log("Latitude: " + latitude);
+  console.log("Longitude: " + longitude);
+}
+
+function showError(error) {
+  switch (error.code) {
+    case error.PERMISSION_DENIED:
+      console.log("User denied the request for Geolocation.");
+      break;
+    case error.POSITION_UNAVAILABLE:
+      console.log("Location information is unavailable.");
+      break;
+    case error.TIMEOUT:
+      console.log("The request to get user location timed out.");
+      break;
+    case error.UNKNOWN_ERROR:
+      console.log("An unknown error occurred.");
+      break;
+  }
+}
+
+
+
+
+
+//visitors
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Visitor Counter</title>
+  <h1>Welcome to My Website</h1>
+  <p>This is the homepage of my website.</p>
+  <p id="visitorCount"></p>
+  <body onload="updateVisitorCount()">
+  <script>
+    function updateVisitorCount() {
+      if (localStorage.getItem("visitorCount")) {
+        var count = parseInt(localStorage.getItem('visitorCount'));
+        count++;
+        localStorage.setItem('visitorCount', count);
+      } else {
+        
+        localStorage.setItem('visitorCount', 1);
+      }
+      var visitorCount = localStorage.getItem('visitorCount');
+      document.getElementById('visitorCount').innerHTML = 'Number of visitors: ' + visitorCount;
+    }
+  </script>
+</head>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
